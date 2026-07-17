@@ -28,13 +28,13 @@ export class HomePage {
         await this.destinationCity.selectOption(city);
     }
 
-async searchFlights(
+    async searchFlights(
         departureCity: string,
         destinationCity: string
-    ): Promise<void> {
-
+    ): Promise<ReservePage> {
         await this.selectDepartureCity(departureCity);
         await this.selectDestinationCity(destinationCity);
         await this.findFlightsButton.click();
+        return new ReservePage(this.page);
     }
 }
